@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Comparison</title>
+</head>
+<body>
+
+    <script>
+        // 获取用户输入
+        var firstInput = parseFloat(prompt("Enter the first number:"));
+        var secondInput = parseFloat(prompt("Enter the second number:"));
+
+ 
+            if (firstInput > secondInput) {
+                document.body.style.backgroundColor = 'lightblue';
+                document.writeln("<h1>" + "firstInput" + " > " + "secondInput "+ "</h1>");
+            } else if (secondInput > firstInput) {
+                document.body.style.backgroundColor = 'orange';
+                document.writeln("<h1>" + "firstInput" + " < " + "secondInput "+ "</h1>");
+            } else {
+                document.body.style.backgroundColor = 'lightyellow';
+            document.writeln("<h1>" + "firstInput" + " == " + "secondInput "+ "</h1>");
+            }
+
+        // 创建按钮来显示输入
+        var showFirstButton = document.createElement("button");
+        showFirstButton.innerHTML = "Show the First Input";
+        showFirstButton.onclick = function() {
+            alert("First Input: " + firstInput);
+        };
+        document.body.appendChild(showFirstButton);
+
+        var showSecondButton = document.createElement("button");
+        showSecondButton.innerHTML = "Show the Second Input";
+        showSecondButton.onclick = function() {
+            alert("Second Input: " + secondInput);
+        };
+        document.body.appendChild(showSecondButton);
+    </script>
+
+</body>
+</html>

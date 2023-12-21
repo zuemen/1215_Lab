@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Calculator</title>
+</head>
+<body>
+
+  <script>
+    // Function declarations for basic calculator operations
+    function add(num1, num2) {
+      return num1 + num2;
+    }
+
+    function subtract(num1, num2) {
+      return num1 - num2;
+    }
+
+    function multiply(num1, num2) {
+      return num1 * num2;
+    }
+
+    function divide(num1, num2) {
+      if (num2 == 0) {
+        return "cannot divide by zero";
+      } else {
+        return num1 / num2;
+      }
+    }
+
+    // Function to take user input and perform the calculation
+    function calculate() {
+      // Loop to allow multiple calculations
+      while (true) {
+        let num1 = parseFloat(prompt("Enter the first number:"));
+
+        // Validate input for the first number
+        while (isNaN(num1)) {
+          alert("Invalid input. Please enter a valid number.");
+          num1 = parseFloat(prompt("Enter the first number:"));
+        }
+
+        let num2 = parseFloat(prompt("Enter the second number:"));
+
+        // Validate input for the second number
+        while (isNaN(num2)) {
+          alert("Invalid input. Please enter a valid number.");
+          num2 = parseFloat(prompt("Enter the second number:"));
+        }
+
+        let operation = prompt("Choose an operation (+, -, *, /):");
+
+        // Validate input for the operation
+        while (!["+", "-", "*", "/"].includes(operation)) {
+          alert("Invalid operation,please choose a valid operation(+,-,*,/).");
+          operation = prompt("Choose an operation (+, -, *, /):");
+        }
+
+        let result;
+        switch (operation) {
+          case "+":
+            result = add(num1, num2);
+            break;
+          case "-":
+            result = subtract(num1, num2);
+            break;
+          case "*":
+            result = multiply(num1, num2);
+            break;
+          case "/":
+            result = divide(num1, num2);
+            break;
+          default:
+            result = "Error: Invalid operation!";
+        }
+        alert("Result: " + result);
+
+        let continueCalculation = prompt("Do you want to perform another calculation? (yes/no):");
+
+        if (continueCalculation.toLowerCase() !== "yes") {
+          break;
+        }
+      }
+    }
+
+    // Call the calculate function to initiate the program
+    calculate();
+  </script>
+
+</body>
+</html>
